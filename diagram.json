@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "IoT AGU",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb3", "top": -80, "left": -100, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp3", "top": -30, "left": -260, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -234, "left": 253.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -197.65,
+      "left": -19.2,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp3:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp3:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp3:GND", "bb3:tn.1", "black", [] ],
+    [ "bb3:tn.10", "led1:C", "black", [ "h8.4", "v38.5", "h230" ] ],
+    [ "esp3:D2", "bb3:10t.a", "orange", [ "h187.5", "v-129.4" ] ],
+    [ "bb3:10t.e", "r1:1", "orange", [ "h-79.6", "v-201.4" ] ],
+    [ "r1:2", "bb3:15t.a", "purple", [] ],
+    [ "bb3:15t.e", "led1:A", "purple", [] ]
+  ],
+  "dependencies": {}
+}
